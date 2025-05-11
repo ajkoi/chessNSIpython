@@ -1,0 +1,87 @@
+/*Definition des theme de couleur*/
+
+/*dark theme */
+:root {
+    --var_main: rgb(17, 17, 27);
+    --var_complement: rgb(220, 138, 120);
+    --var_text: rgb(205, 214, 244);
+    --surface-1: #45475a;
+    --surface-0: #313244;
+}
+
+.light_theme{
+    --var_main: rgb(220, 227, 251);
+    --var_complement: rgb(125, 196, 228);
+    --var_text: rgb(17, 17, 27);
+    --surface-1: #ccd0da;
+    --surface-0: #45475a;
+}
+
+/*Ensemble des specifications générales, h1,h2,p...*/
+h1 {
+    color: var(--var_text);
+    padding-left: 15px;
+}
+
+h2 {
+    color: var(--var_text);
+    padding-left: 25px;
+}
+
+h3 {
+    color: var(--var_text);
+    padding-left: 30px;
+}
+
+h4 {
+    color: var(--var_text);
+    padding-left: 35px;
+}
+
+h5 {
+    color: var(--var_text);
+    padding-left: 45px;
+}
+
+
+p {
+    color: var(--var_text);
+    padding: 20px;
+}
+
+
+
+@font-face {
+    font-family: DepartureMono;
+    src: url("../fonts/departure.otf");
+}
+
+@font-face {
+    font-family: symbols;
+    src: url("../fonts/symbols.ttf");
+}
+
+.text{
+    /*height: 100%;*/
+    /*width: 70%;*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 199px;
+    /*margin-left: 5px;*/
+    margin: 0;
+    border: 5px solid var(--var_complement);
+    background-color: var(--var_main);
+    text-align: justify;
+    padding: 20px;
+    color: var(--var_text);
+    font-family: "Century Gothic", sans-serif;
+}
+
+body {
+    background: var(--var_main);
+}
+
+.img_club {
+    border-radius: 5px;
+}
