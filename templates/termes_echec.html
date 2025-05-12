@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang='fr'>
+{% extends 'index.html' %}
+{% block body %}
 
-<head>
-    <meta charset="utf-8">
-    <title>Chess.html</title>
-    <link rel="stylesheet" href="style/menus.css" type="text/css">
-    <link rel="stylesheet" href="style/style.css" type="text/css">
-    <link rel="stylesheet" href="style/termes.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <script>
+<script>
         function ChangeDisplay(elem, button)
             {
                 if (getComputedStyle(elem).display != "none") {
@@ -24,19 +16,6 @@
 
             }
     </script>
-
-</head>
-
-<body>
-    <div id="menu">
-        <script>
-            $(function (){
-                $('#menu').load('menu.html');
-            })
-
-        </script>
-    </div>
-
     <div class="text">
         <h1>Termes échiquéens</h1>
         <div class="div_H2">
@@ -47,7 +26,7 @@
                 <button class="button_h3" onclick="ChangeDisplay(div_regle_materiel, this)"><h3 style="text-align: left;">Matériel</h3></button>
                 
                 <div id="div_regle_materiel">
-                    <p style="float:left"><img src="images/illustration/regle/chessboard_start.png" alt="illustration d'un plateau" /></p>
+                    <p style="float:left"><img src="static/images/illustration/regle/chessboard_start.png" alt="illustration d'un plateau" /></p>
                     <p>
                         Pour jouer aux échecs, les joueurs ont besoin au minimum d'un jeu de pièces et d'un échiquier. Une pendule est également nécessaire si les joueurs décident de disputer une partie avec une contrainte de temps. De plus, les joueurs utilisent souvent une feuille de partie pour noter leurs coups et pouvoir reconstituer leur affrontement.
                         <br><br>
@@ -82,7 +61,7 @@
                     <div></div>
                     <button class="button_h4" onclick="ChangeDisplay(div_regle_depla_pion, this)"><h4 style="text-align: left;">Pion</h4></button>
                     <div id="div_regle_depla_pion">
-                        <p style="float:left"><img class="img_a_regle" src="images/illustration/regle/depla_pion.png" alt="deplacement d'un pion" /></p>
+                        <p style="float:left"><img class="img_a_regle" src="static/images/illustration/regle/depla_pion.png" alt="deplacement d'un pion" /></p>
                         <p>
                             Les pions se déplacent d'une case vers l'avant, excepté depuis leur poste de départ d'où, emportés par leur élan, ils peuvent aussi jaillir de deux cases. Ils sont les seuls à ne jamais pouvoir reculer !
                             <br>Les pions capturent les pièces adverses se trouvant à portée d'une case en diagonale. Ils sont les seuls à prendre de façon différente qu'ils se déplacent. Ils bénéficient aussi dans certaines circonstances d'une règle spéciale, la prise en passant.
@@ -92,7 +71,7 @@
                     <div></div>
                     <button class="button_h4" onclick="ChangeDisplay(div_regle_depla_cavalier, this)"><h4 style="text-align: left;">Cavalier</h4></button>
                     <div id="div_regle_depla_cavalier">
-                        <p style="float:right"><img class="img_a_regle" src="images/illustration/regle/depla_cavalier.png" alt="deplacement d'un cavalier" /></p>
+                        <p style="float:right"><img class="img_a_regle" src="static/images/illustration/regle/depla_cavalier.png" alt="deplacement d'un cavalier" /></p>
                         <p>
                             Les cavaliers font un mouvement de deux cases horizontalement puis une verticalement, ou de deux cases verticalement puis une horizontalement. On dit souvent qu'ils se déplacent à la manière d'un "L" majuscule qui pourrait se retourner dans tous les sens.
                             <br>Les cavaliers capturent en atterrissant sur la case de leur victime et sont les seules pièces pouvant sauter par-dessus les autres.
@@ -102,7 +81,7 @@
                     <div></div>
                     <button class="button_h4" onclick="ChangeDisplay(div_regle_depla_fou, this)"><h4 style="text-align: left;">Fou</span></button>
                     <div id="div_regle_depla_fou">
-                        <p style="float:left"><img class="img_a_regle" src="images/illustration/regle/depla_fou.png" alt="deplacement d'un fou" /></p>
+                        <p style="float:left"><img class="img_a_regle" src="static/images/illustration/regle/depla_fou.png" alt="deplacement d'un fou" /></p>
                         <p>
                             Les fous peuvent se déplacer d'un nombre illimité de cases en diagonale. Ils demeurent fidèle à la couleur sur laquelle ils commencent la partie. Les joueurs démarrent toujours avec deux arpenteurs des diagonales, formant ainsi la paire de fous.
                         </p>
@@ -111,7 +90,7 @@
                     <div></div>
                     <button class="button_h4" onclick="ChangeDisplay(div_regle_depla_tour, this)"><h4 style="text-align: left;">Tour</h4></button>
                     <div id="div_regle_depla_tour">
-                        <p style="float:right"><img class="img_a_regle" src="images/illustration/regle/depla_tour.png" alt="deplacement d'une tour" /></p>
+                        <p style="float:right"><img class="img_a_regle" src="static/images/illustration/regle/depla_tour.png" alt="deplacement d'une tour" /></p>
                         <p>
                             Les tours jouissent d'un mouvement illimité à l'horizontale ou à la verticale. Elles permettent aussi d'accompagner le roi dans le coup spécial, intitulé "roque".</p>
                         </p>
@@ -120,7 +99,7 @@
                     <div></div>
                     <button class="button_h4" onclick="ChangeDisplay(div_regle_depla_dame, this)"><h4 style="text-align: left;">Dame</h4></button>
                     <div id="div_regle_depla_dame">
-                        <p style="float:left"><img class="img_a_regle" src="images/illustration/regle/depla_dame.png" alt="deplacement d'une dame" /></p>
+                        <p style="float:left"><img class="img_a_regle" src="static/images/illustration/regle/depla_dame.png" alt="deplacement d'une dame" /></p>
                         <p>
                             La dame est la pièce la plus puissante aux échecs. Elle peut se déplacer en diagonale, horizontalement ou verticalement d'autant de cases qu'elle le souhaite (sauf si une autre pièce la bloque). Elle combine donc les mouvements des tours et des fous.</p>
                         </p>
@@ -129,7 +108,7 @@
                     <div></div>
                     <button class="button_h4" onclick="ChangeDisplay(div_regle_depla_roi, this)"><h4 style="text-align: left;">Roi</h4></button>
                     <div id="div_regle_depla_roi">
-                        <p style="float:right"><img class="img_a_regle" src="images/illustration/regle/depla_roi.png" alt="deplacement d'un roi" /></p>
+                        <p style="float:right"><img class="img_a_regle" src="static/images/illustration/regle/depla_roi.png" alt="deplacement d'un roi" /></p>
                         <p>
                             Le roi peut se déplacer d'une seule case dans toutes les directions. Il bénéficie également d'un super pouvoir pour se mettre à l'abri, utilisable une seule fois dans la partie, dénommé le roque.</p>
                         </p>
@@ -215,7 +194,7 @@
                 <div></div>
                 <button class="button_h3" onclick="ChangeDisplay(div_regle_notation, this)"><h3 style="text-align: left;">Notation</h3></button>
                 <div id="div_regle_notation">
-                    <p style="float:left"><img src="images/illustration/regle/chessboard_notation.png" alt="Regloe de notation" /></p>
+                    <p style="float:left"><img src="static/images/illustration/regle/chessboard_notation.png" alt="Regloe de notation" /></p>
                     <p>
                         La notation échiquéenne est une manière d'enregistrer ou d'écrire les coups d'une partie d'échecs. Bien qu'il existe différentes techniques pour ce faire, la notation officielle aujourd'hui est celle dit algébrique. Elle indique le numéro du coup, la pièce déplacée et la case où elle atterrit.
                         <br><br>
@@ -235,5 +214,4 @@
     </div>
 
 </body>
-
-</html>
+{% endblock %}
