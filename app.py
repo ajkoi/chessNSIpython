@@ -3,14 +3,17 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
+# maman prof NSI 06 06 06 06 06
+#
+#
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", message="manger")
 
 
 @app.route("/club")
 def club():
-    return render_template("le_club.html")
+    return render_template("le_club.html", message="manger")
 
 
 @app.route("/apprendre")
