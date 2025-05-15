@@ -27,6 +27,7 @@ login_manager.login_view = "login"
 class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(250), unique=True, nullable=False)
+    email = db.Column(db.String(250), unique=True, nullable=False)
     password = db.Column(db.String(250), nullable=False)
 
 
@@ -62,23 +63,20 @@ def apprendre():
 def inscription():
     if request.method == "POST":
         username = request.form.get("username")
-        print(username)
+        email = request.form.get("email")
         password = request.form.get("password")
 
         if Users.query.filter_by(username=username).first():
             print(Users.query.filter_by(username=username).first().username)
-            return f"{username} mm"  # render_template("sign_up.html", error="Username already taken!")
-        print("AMAMMA")
+            return render_template("form.html", error="Username already taken!")
 
         hashed_password = generate_password_hash(password, method="pbkdf2:sha256")
 
-        new_user = Users(username=username, password=hashed_password)
+        new_user = Users(username=username, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
 
-        for i in Users.query.all():
-            print(i, i.username, i.password)
-        return "mamama"  # redirect(url_for("login"))
+        return redirect(url_for("login"))
 
     return render_template("form.html", message="from inscription")
 
@@ -95,9 +93,11 @@ def login():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return "hh"  # redirect(url_for("dashboard"))
+            return current_user.username  # redirect(url_for("dashboard"))
         else:
-            return "MAMAkk"  # render_template("login.html", error="Invalid username or password")
+            return render_template(
+                "form2.html", message="mot de passe ou identifiant incorrect"
+            )  # render_template("login.html", error="Invalid username or password")
 
     return render_template("form2.html", message="from login")
 
