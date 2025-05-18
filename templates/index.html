@@ -6,17 +6,20 @@
 <head>
     <meta charset="utf-8">
     <title>Chess.html</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style/news.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/menus.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/termes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/club.css') }}">
+
     <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
 
 </head>
 <body>
 <div id="menu">
 <div class="div_img">
-    <a href="{{ url_for("home") }}"><img src="static/images/menu/chessNSIhtml.png" alt="chessNSI.html" ></a>
+    <a href="{{ url_for("home") }}"><img src="../static/images/menu/chessNSIhtml.png" alt="chessNSI.html" ></a>
 </div>
 <ul>
     <li><a href="{{ url_for("club") }}">Le club</a></li>
@@ -25,17 +28,18 @@
     <li><a href="">Jouer</a></li>
 </ul>
 <div id="change-theme-button">
-    <img src="static/images/menu/dark_theme_button.png" alt="mode clair" id="change-theme">
-    <script src="static/scripts/change-theme.js"></script>
+    <img src="../static/images/menu/dark_theme_button.png" alt="mode clair" id="change-theme">
+    <script src="../static/scripts/change-theme.js"></script>
     <!--        <script>initThemeSwitcher()</script>-->
 </div>
 <div>
-    <video id='pub' height="100" src="pubs/pub_echec_club.mp4" muted loop autoplay> <!--autoplay loop-->
+    <video id='pub' height="100" src="../static/pubs/pub_echec_club.mp4" muted loop autoplay> <!--autoplay loop-->
 <!--        <source src="pubs/pub_echec_club.mp4" type="video/mp4">-->
     </video>
 
 </div>
 </div>
+
 {% block body %}
 <div class="text">
     <h1>News</h1>

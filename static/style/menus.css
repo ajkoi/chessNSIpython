@@ -1,21 +1,4 @@
 
-:root {
-    --var_main_bandeau: rgb(14, 14, 36);
-    --var_complement_bandeau: rgb(239, 159, 118);
-    --var_img_bandeau: rgb(220, 138, 120);
-    --var_text_bandeau: rgb(205, 214, 244);
-    --var_a_hover: rgb(48, 52, 70);
-}
-
-.light_theme{
-    --var_main_bandeau: rgb(205, 214, 244);
-    --var_complement_bandeau: rgb(139, 213, 202);
-    --var_img_bandeau: rgb(125, 196, 228);
-    --var_text_bandeau: rgb(17, 17, 27);
-    --var_a_hover: rgb(183, 193, 239);
-}
-
-
 #menu{
     height: 100%;
     width: 190px;
@@ -85,11 +68,11 @@
 
 }
 #change-theme-button img {
-    width: 150px;
+    width: 125px;
 }
 
 #menu video {
-    margin-left: auto;
-    margin-right: auto;
+    width: 20px;
+    margin-left: 80;
     display: block;
 }

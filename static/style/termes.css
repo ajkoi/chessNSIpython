@@ -25,6 +25,11 @@ div {clear:both}
     padding-bottom: 5px;
 
     background-color: var(--surface-1);
+    color: var(--var_text);
+
+    font-size: 30px;
+    font-family: 'Century Gothic';
+    text-align: left;
 
     border-radius: 15px;
     border: 5px solid var(--surface-0);
@@ -50,6 +55,10 @@ div {clear:both}
     background-color: var(--surface-1);
     color: var(--var_text);
 
+    font-size: 15px;
+    font-family: 'Century Gothic';
+    text-align: left;
+
     border-radius: 15px;
     border: 5px solid var(--surface-0);
 }
@@ -73,6 +82,10 @@ div {clear:both}
 
     background-color: var(--surface-1);
     color: var(--var_text);
+
+    font-size: 10px;
+    font-family: 'Century Gothic';
+    text-align: left;
 
     border-radius: 15px;
     border: 5px solid var(--surface-0);
@@ -116,3 +129,37 @@ div {clear:both}
 #div_regle_cadence {display: none}
 
 #div_regle_notation {display: none}
+
+
+/*Tactique*/
+
+#div_tactique_clouage {display: none}
+
+#div_tactique_enfilade {display: none}
+
+#div_tactique_fourchette {display: none}
+
+#div_tactique_attdecouverte {display: none}
+
+
+/*Echec et mat*/
+
+#div_mat_2tours {display: none}
+
+#div_mat_dame {display: none}
+
+#div_mat_1tour {display: none}
+
+#div_mat_2fous {display: none}
+
+#div_mat_arabe {display: none}
+
+#div_mat_couloir {display: none}
+
+#div_mat_etouffe {display: none}
+
+#div_mat_epaulette {display: none}
+
+#div_mat_imbecile {display: none}
+
+#div_mat_berger {display: none}
