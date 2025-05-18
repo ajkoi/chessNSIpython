@@ -1,0 +1,27 @@
+.tabl_horaire {
+    color: var(--var_text);
+    fill-rule: unset;
+
+    margin-left: 35px;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+
+    border: 5px solid var(--var_complement);
+    border-radius: 10px;
+}
+
+.case_rempli {
+    background-color: var(--surface-1);
+    border-radius: 5px;
+}
+
+.club {
+    margin: 20px;
+}
+
+.club img {
+    float: left;
+    border-radius: 50px;
+    height: 250px;
+    margin: 10px;
+}

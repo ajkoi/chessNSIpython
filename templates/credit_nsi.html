@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+<head>
+    <meta charset="utf-8">
+    <title>Paiement</title>
+    <link rel="icon" href="../../static/images/credit_nsi/credit_nsi.png" type="image/gif">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/news.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/menus.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/termes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/club.css') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/termes.css') }}">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="top_auth">
+            <img class="img_logo" src="../static/images/credit_nsi/credit_nsi.png" alt="Crédit NSI">
+            <img class="img_visa" src="../static/images/credit_nsi/credit_visa.png" alt="Moyen de Paiement">
+            <p class="p_auth">Authentification faible</p>
+
+    </div>
+
+    <div class="band_turquoise"></div>
+
+    <div class="main_div">
+        <div class="resume_div">
+            <div>
+                <h2 class="title_res">Résumé de la transaction</h2>
+            </div>
+
+            <div class="res_info">
+
+                <div class="res_fix">
+                    <p>Marchand:</p>
+                    <br>
+                    <p>Montant:</p>
+                    <br>
+                    <p>Date:</p>
+                    <br>
+                    <p>N° de carte:</p>
+                    <br>
+                    <p>N° de téléphone:</p>
+                </div>
+
+                <div class="res_var" style="clear: both;">
+                    <p>Chess NSI</p>
+                    <br>
+                    <p class="txt_var_val">------</p>         <!-- à completer, valeur entree dans formulaire (*100)-->
+                    <br>
+                    <p id="txt_var_date" ></p>        <!-- à completer, obtenir heure par script-->
+                    <script>
+                        let date_prim = Date()
+                        let date = date_prim.slice(4,21)
+
+                        document.getElementById('txt_var_date').innerHTML = date;  
+                    </script>
+                    <br>
+                    <p class="txt_var_cb">------</p>          <!-- à completer, nb au hasard par script/obtenir du formulaire--> <!--5341 0282 0800 7359-->
+                    <br>
+                    <p class="txt_var_tel">------</p>         <!-- à completer, valeur entree dans le formulaire -->
+                </div>
+            </div>
+        </div>
+
+        <div class="code_div">
+            <h2>Saisir votre Code Achat Internet:</h2>
+            <p>
+                Pour "sécuriser" votre achat en ligne, veuillez proceder à la première étape de l'Authentification Faible en saisissant le code achat internet.
+            </p>
+
+            <p><span class="cad">Code Achat Internet</span></p>
+
+            <input type="text" id="input_code">
+            <br>
+
+            <a id="button_valid" class="button_a" href="rick_roll.html">Valider</a>
+            <!-- penser a transformer button en a pour le lien (regarder internet si lien button possible) -->
+            <br>
+
+            <p>Pour tout problème, merci de contacter votre agence problème ou votre conseiller.</p>
+
+        </div>
+
+    </div>
+
+    <div class="D_band_turquoise">
+
+        <div class="buttons_turquoise">
+            <a id="button_annul" class="button_a" href="rick_roll.html">Annuler la transaction</a>
+            <a id="button_info" class="button_a" href="rick_roll.html">Informations</a>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
+
+
+
