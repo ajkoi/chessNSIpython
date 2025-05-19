@@ -1,0 +1,33 @@
+
+.div_current{
+    float: left;
+}
+
+.div_img_current {
+    height: 200px;
+    width: 200px;
+
+    border-radius: 95px;
+
+    background-color: #6589db;
+    float: left;
+}
+
+.div_img_current img {
+    height: 200px;
+    width: 200px;
+
+    border-radius: 100px;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.div_don {
+    float: right;
+    padding: 25px;
+
+    border: 5px solid var(--var_complement);
+    border-radius: 15px;
+    margin: 15px;
+}

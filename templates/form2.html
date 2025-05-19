@@ -1,15 +1,46 @@
 
 {% extends 'index.html' %}
 {% block body %}
+
+<script>
+    function GetRandomColor(){
+        let listHexValues = ["0","2","3","4","5","6","7","8","9","a","b","c","d","e","f"]
+        let HexColor = "#"
+        for (let i = 0; i < 6; i++) {
+            let HexPart = listHexValues[Math.floor(Math.random() * 16)];
+        }
+        HexColor += HexPart;
+        
+        return HexColor
+    }
+
+</script>
+
 <div class="text">
-{{ message }}
-<form action="{{ url_for("login") }}" method="post">
-<label for="firstname">Username</label>
-<input type="text" name="username" placeholder="username">
-<label for="lastname">Password</label>
-<input type="password" name="password" placeholder="password">
-<!-- numéro du prof 06 01 06 01 06 -->
-<button type="submit">donner</button>
-</form>
+    <div class="div_current">
+        <div class="div_img_current">
+            <img src="../static/images/formulaire/personne.png" alt="Votre tête">
+
+            <!-- <h1 style="float: right;">CurrentUser</h1> -->
+        </div>
+        <script>
+            div_img_current.style.backgroundColor = GetRandomColor()
+        </script>
+
+    </div>
+
+    <div class="div_don">
+        {{ message }}
+        <form action="{{ url_for("login") }}" method="post">
+            <label for="firstname">Username</label>
+            <input type="text" name="username" placeholder="username">
+            <br>
+            <label for="lastname">Password</label>
+            <input type="password" name="password" placeholder="password">
+            <br>
+            <!-- numéro du prof 06 01 06 01 06 -->
+            <button type="submit">donner</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
