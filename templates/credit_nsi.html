@@ -51,7 +51,13 @@
                 <div class="res_var" style="clear: both;">
                     <p>Chess NSI</p>
                     <br>
-                    <p class="txt_var_val">------</p>         <!-- à completer, valeur entree dans formulaire (*100)-->
+                    <p id="txt_var_val">------</p>         <!-- à completer, valeur entree dans formulaire (*100)-->
+                    <script>
+                        let val = request.form.get("val")
+                        let val_affich = val*1000 + ",00"
+
+                        document.getElementById('txt_var_val').innerHTML = val_affich;  
+                    </script>
                     <br>
                     <p id="txt_var_date" ></p>        <!-- à completer, obtenir heure par script-->
                     <script>
