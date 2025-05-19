@@ -108,6 +108,10 @@ def login():
 def dashboard():
     return f"{current_user.username} mama"  # render_template("dashboard.html", username=current_user.username)
 
+@app.route("/paiement")
+@login_required
+def paiement():
+    return render_template("credit_nsi.html")
 
 # Logout route
 @app.route("/logout")
@@ -115,6 +119,7 @@ def dashboard():
 def logout():
     logout_user()
     return redirect(url_for("home"))
+
 
 
 if __name__ == "__main__":
