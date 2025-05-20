@@ -11,14 +11,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/termes.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/club.css') }}">
-    
     <link rel="stylesheet" href="{{ url_for('static', filename='style/termes.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/credit_nsi.css') }}">
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
+    {{ manger }}
     <div class="top_auth">
             <img class="img_logo" src="../static/images/credit_nsi/credit_nsi.png" alt="Crédit NSI">
             <img class="img_visa" src="../static/images/credit_nsi/credit_visa.png" alt="Moyen de Paiement">
@@ -51,10 +54,10 @@
                 <div class="res_var" style="clear: both;">
                     <p>Chess NSI</p>
                     <br>
-                    <p id="txt_var_val">------</p>         <!-- à completer, valeur entree dans formulaire (*100)-->
+                    <p id="txt_var_val">{{ val }}</p>         <!-- à completer, valeur entree dans formulaire (*100)-->
                     <script>
                         let val = request.form.get("val")
-                        let val_affich = val*1000 + ",00"
+                        let val_affich = val*100 + ",00 EUR"
 
                         document.getElementById('txt_var_val').innerHTML = val_affich;  
                     </script>
@@ -67,9 +70,9 @@
                         document.getElementById('txt_var_date').innerHTML = date;  
                     </script>
                     <br>
-                    <p class="txt_var_cb">------</p>          <!-- à completer, nb au hasard par script/obtenir du formulaire--> <!--5341 0282 0800 7359-->
+                    <p class="txt_var_cb">{{ cb }}</p>          <!-- à completer, nb au hasard par script/obtenir du formulaire--> <!--5341 0282 0800 7359-->
                     <br>
-                    <p class="txt_var_tel">------</p>         <!-- à completer, valeur entree dans le formulaire -->
+                    <p class="txt_var_tel">{{ tel }}</p>         <!-- à completer, valeur entree dans le formulaire -->
                 </div>
             </div>
         </div>

@@ -93,25 +93,34 @@ def login():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return current_user.username  # redirect(url_for("dashboard"))
+            return redirect(url_for("dashboard"))
         else:
             return render_template(
                 "form2.html", message="mot de passe ou identifiant incorrect"
             )  # render_template("login.html", error="Invalid username or password")
 
-    return render_template("form2.html", message="from login")
+    return render_template("form2.html", message="")
+
 
 
 # Protected dashboard route
-@app.route("/dashboard")
+@app.route("/profile", methods=["GET", "POST"])
 @login_required
 def dashboard():
-    return f"{current_user.username} mama"  # render_template("dashboard.html", username=current_user.username)
+    if request.method == "POST":
+        username = request.form.get("username")
+        tel = f'{str(request.form.get("tel"))[:2]} {str(request.form.get("tel"))[2:4]} {str(request.form.get("tel"))[4:6]} {str(request.form.get("tel"))[6:8]} {str(request.form.get("tel"))[8:]}'
+        cb = f'{str(request.form.get("cb"))[:4]} {str(request.form.get("cb"))[4:8]} {str(request.form.get("cb"))[8:12]} {str(request.form.get("cb"))[12:]}'
+        val = f'{int(request.form.get("val"))}•10^54,00 EUR'
 
-@app.route("/paiement")
+        return redirect(url_for("paiement",cb=cb, tel=tel, val=val ))
+        
+    return render_template("profile.html", message="test")  # render_template("dashboard.html", username=current_user.username)
+
+@app.route("/paiement/<cb>/<val>/<tel>")
 @login_required
-def paiement():
-    return render_template("credit_nsi.html")
+def paiement(cb, val, tel):
+    return render_template("credit_nsi.html", tel=tel, cb=cb, val=val)
 
 # Logout route
 @app.route("/logout")
