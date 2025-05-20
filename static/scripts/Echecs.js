@@ -465,5 +465,47 @@ function playableBishop(square, player) {
 
 
 function playableKing(square, player) {
+    let squares = []
     
+    if (player===0) {
+        for (let i = -1; i<=1; i++) {
+            for (let j = -1; j<=1; j++) {
+            let checked_square = [square[0]+i, square[1]+j]
+            if (checked_square[0]===0 || checked_square[0 === 7 || checked_square[1] === 0 || checked_square[1] === 7] || (checked_square[0]===square[0] && checked_square[1]===square[1])) {
+                continue
+            }
+            if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+            }
+        }
+    }
+    else if (player===1) {
+        for (let i = -1; i<=1; i++) {
+            for (let j = -1; j<=1; j++) {
+            let checked_square = [square[0]+i, square[1]+j]
+            // if (checked_square[0]===0 || checked_square[0 === 7 || checked_square[1] === 0 || checked_square[1] === 7] || (checked_square[0]===square[0] && checked_square[1]===square[1])) {
+            //     continue
+            // }
+            if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+            }
+        }
+    }
+    return squares
 }
