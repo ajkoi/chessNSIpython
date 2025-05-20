@@ -307,6 +307,163 @@ function playableRook (square, player) {
     }
     return squares
 }
+
+
+
 function playableBishop(square, player) {
+    let squares = []
+    if (player===0) {
+        {
+        let i = 1
+        while (square[0]+i < 8 && square[1]+i < 8) {
+           let checked_square = [square[0]+i, square[1]+i]
+            if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+
+           i++ 
+        }
+    }
+        {
+        let i = 1
+        while (square[0]+i < 8 && square[1]-i > 0) {
+           let checked_square = [square[0]+i, square[1]-i]
+            if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+
+           i++ 
+        }
+    }
+        {
+        let i = 1
+        while (square[0]-i > 0 && square[1]+i < 8) {
+           let checked_square = [square[0]-i, square[1]+i]
+            if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+
+           i++ 
+        }
+    }
+        {
+        let i = 1
+        while (square[0]-i > 0 && square[1]-i > 0) {
+           let checked_square = [square[0]+i, square[1]+i]
+            if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+
+           i++ 
+        }
+    }
+    }   
+    if (player===1) {
+        {
+        let i = 1
+        while (square[0]+i < 8 && square[1]+i < 8) {
+           let checked_square = [square[0]+i, square[1]+i]
+            if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+
+           i++ 
+        }
+    }
+        {
+        let i = 1
+        while (square[0]+i < 8 && square[1]-i > 0) {
+           let checked_square = [square[0]+i, square[1]-i]
+            if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+
+           i++ 
+        }
+    }
+        {
+        let i = 1
+        while (square[0]-i > 0 && square[1]+i < 8) {
+           let checked_square = [square[0]-i, square[1]+i]
+            if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+
+           i++ 
+        }
+    }
+        {
+        let i = 1
+        while (square[0]-i > 0 && square[1]-i > 0) {
+           let checked_square = [square[0]-i, square[1]-i]
+            if (!isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')) {
+                break
+            }
+            else if (isUpper(chessboard[checked_square[0]][checked_square[1]]) && !(chessboard[checked_square[0]][checked_square[1]]===' ')){
+                squares.push(checked_square)
+                break
+            }
+            else {
+                squares.push(checked_square)
+            }
+
+           i++ 
+        }
+    }
+    }   
+    return squares
+}
+
+
+function playableKing(square, player) {
     
 }
