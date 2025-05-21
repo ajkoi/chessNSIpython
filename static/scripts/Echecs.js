@@ -19,16 +19,6 @@ function isUpper (char) {
 let chessboard = [
     ["r", "n", "b", "q", "k", "b", "n", "r"],
     ["p", "p", "p", "p", "p", "p", "p", "p"],
-    [" ", " ", " ", "p", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " "],
-    ["P", "P", "P", "P", "P", "P", "P", "P"],
-    ["R", "N", "B", "Q", "K", "B", "N", "R"],
-]
-let chessboard2 = [
-    ["r", "n", "b", "q", " ", "b", "n", "r"],
-    ["p", "p", "p", "p", " ", "p", "p", "p"],
     [" ", " ", " ", " ", " ", " ", " ", " "],
     [" ", " ", " ", " ", " ", " ", " ", " "],
     [" ", " ", " ", " ", " ", " ", " ", " "],
@@ -546,6 +536,7 @@ function arrayInarray(arr1, arr2) {
 }
 function verifCoup(start, end, chessboard, player) {
     if (chessboard[start[0]][start[1]]==='P' && player===0) {
+        console.log(start)
         return (arrayInarray(end, playablePawn(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='p' && player===1) {
@@ -620,8 +611,8 @@ function jouerCoup(start, end, player, coups) {
         console.log(coups)
         return true
     }
-    
 }
+console.log(jouerCoup([6, 0], [5, 0], 0, coups))
 
 function transformCoup(input) {
     if (input[0]=="a") {
@@ -700,4 +691,23 @@ function render_c(chessboard) {
 }
 function render() {
     render_c(chessboard)
+}
+function jouer() {
+    var start = transformCoup(document.getElementById("depart").value)
+    var end = transformCoup(document.getElementById("arrive").value);
+    if (!start || !end) {
+        console.log("fail")
+    }
+    else {
+        let isJoue = jouerCoup(start, end, player, coups)
+        var err = document.getElementById("erreur")
+        if (!isJoue) {
+            err.innerText = "Erreur, coup illégal ou un truc s'est raté..."
+        }
+        else {
+            err.innerText = ""
+            player = (player+1)%2
+            render_c(chessboard)
+        }
+    }
 }
