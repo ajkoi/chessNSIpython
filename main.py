@@ -111,7 +111,7 @@ def dashboard():
         username = request.form.get("username")
         tel = f'{str(request.form.get("tel"))[:2]} {str(request.form.get("tel"))[2:4]} {str(request.form.get("tel"))[4:6]} {str(request.form.get("tel"))[6:8]} {str(request.form.get("tel"))[8:]}'
         cb = f'{str(request.form.get("cb"))[:4]} {str(request.form.get("cb"))[4:8]} {str(request.form.get("cb"))[8:12]} {str(request.form.get("cb"))[12:]}'
-        val = f'{int(request.form.get("val"))}•10^54,00 EUR'
+        val = f'{int(request.form.get("val"))}•10^50,00 EUR'
 
         return redirect(url_for("paiement",cb=cb, tel=tel, val=val ))
         

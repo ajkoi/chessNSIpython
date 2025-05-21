@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>Paiement</title>
-    <link rel="icon" href="../../static/images/credit_nsi/credit_nsi.png" type="image/gif">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style/news.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/menus.css') }}">
@@ -23,8 +22,8 @@
 <body>
     {{ manger }}
     <div class="top_auth">
-            <img class="img_logo" src="../static/images/credit_nsi/credit_nsi.png" alt="Crédit NSI">
-            <img class="img_visa" src="../static/images/credit_nsi/credit_visa.png" alt="Moyen de Paiement">
+            <img class="img_logo" src="{{ url_for('static', filename='images/credit_nsi/credit_nsi.png') }}" alt="Crédit NSI">
+            <img class="img_visa" src="{{ url_for('static', filename='images/credit_nsi/credit_visa.png') }}" alt="Moyen de Paiement">
             <p class="p_auth">Authentification faible</p>
 
     </div>
@@ -55,12 +54,6 @@
                     <p>Chess NSI</p>
                     <br>
                     <p id="txt_var_val">{{ val }}</p>         <!-- à completer, valeur entree dans formulaire (*100)-->
-                    <script>
-                        let val = request.form.get("val")
-                        let val_affich = val*100 + ",00 EUR"
-
-                        document.getElementById('txt_var_val').innerHTML = val_affich;  
-                    </script>
                     <br>
                     <p id="txt_var_date" ></p>        <!-- à completer, obtenir heure par script-->
                     <script>

@@ -8,10 +8,22 @@
         let HexColor = "#"
         for (let i = 0; i < 6; i++) {
             let HexPart = listHexValues[Math.floor(Math.random() * 16)];
+            HexColor += HexPart;
         }
-        HexColor += HexPart;
-        
+
         return HexColor
+    }
+
+    function RandomBackground(){
+
+        // let HexValues = "01234566789ABCDEF"
+        // let HexColor = "#"
+        // for (let i = 0; i < 6; i++) {
+        //     let HexPart = HexValues[Math.floor(Math.random() * 16)];
+        //     HexColor += HexPart;
+        // }
+
+        div_img_current.style.backgroundColor = '#ab173C';
     }
 
 </script>
@@ -24,10 +36,28 @@
             <!-- <h1 style="float: right;">CurrentUser</h1> -->
         </div>
         <script>
-            div_img_current.style.backgroundColor = GetRandomColor()
+            function RandomBackground(){
+
+                // let HexValues = "01234566789ABCDEF"
+                // let HexColor = "#"
+                // for (let i = 0; i < 6; i++) {
+                //     let HexPart = HexValues[Math.floor(Math.random() * 16)];
+                //     HexColor += HexPart;
+                // }
+
+                div_img_current.style.backgroundColor = '#ab173c';
+            }
         </script>
 
+
+        <p id="p_p_p"></p>
+        <script>
+            document.getElementById('p_p_p').innerHTML = tr;
+        </script>
+        <button onclick="RandomBackground()"> Changer de couleur</button>
+
     </div>
+
 
     <div class="div_don">
         <form action="{{ url_for("dashboard") }}" method="post">
