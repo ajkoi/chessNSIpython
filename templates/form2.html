@@ -2,46 +2,60 @@
 {% extends 'index.html' %}
 {% block body %}
 
-<div class="text">
-
-    <div>
-        <h2>Inscription</h2>
-        <div class="enregistrement">
-        {{ message }}
-        <form action="{{ url_for("inscription") }}" method="post">
-            <label for="firstname">Username</label>
-            <input type="text" name="username" placeholder="username">
-            <br>
-            <label for="email">email</label>
-            <input type="email" name="email" placeholder="email">
-            <br>
-            <label for="lastname">Password</label>
-            <input type="password" name="password" placeholder="password">
-            <br>
-            <!-- numéro du prof 06 01 06 01 06 -->
-            <button type="submit">donner</button>
-        </form>
-        </div>
-
-    </div>
+<div class="text_form">
 
 
-    <div>
-        <h2>Connection</h2>
-        <div class="connection"> 
+
+    <div class="formulaire">
+        <div class="div_inscrip">
+            <h2>Inscription</h2>
+            <div class="enregistrement">
             {{ message }}
-            <form action="{{ url_for("login") }}" method="post">
+            <form action="{{ url_for("inscription") }}" method="post">
                 <label for="firstname">Username</label>
                 <input type="text" name="username" placeholder="username">
+                <br>
+                <label for="email">email</label>
+                <input type="email" name="email" placeholder="email">
                 <br>
                 <label for="lastname">Password</label>
                 <input type="password" name="password" placeholder="password">
                 <br>
                 <!-- numéro du prof 06 01 06 01 06 -->
-
                 <button type="submit">donner</button>
             </form>
+            </div>
+        </div>
+
+
+        <div class="div_connect">
+            <h2>Connection</h2>
+            <div class="connection"> 
+                {{ message }}
+                <form action="{{ url_for("login") }}" method="post">
+                    <label for="firstname">Username</label>
+                    <input type="text" name="username" placeholder="username">
+                    <br>
+                    <label for="lastname">Password</label>
+                    <input type="password" name="password" placeholder="password">
+                    <br>
+                    <!-- numéro du prof 06 01 06 01 06 -->
+
+                    <button type="submit">donner</button>
+                </form>
+            </div>
         </div>
     </div>
+
+    <div class="div_envie">
+        <p>
+            Le club Echec, plus qu'un simple club, est une véritable famille pour ses membres, en vous demandant de vous inscrire nous vous demandons de rejoindre cette famille (et d'éventuellement participer financièrement à la vie du club).
+            <br><br>
+            En créeant ce compte, on vous propose également des avantages certains, tel que de pouvoir jouer 'gratuitement' au Echec en ligne, face a une intelligence artificielle des plus performantes.
+        </p>
+    </div>
+    <img class="club_img_heureux" src="static\images\illustration\club\club_echec1.webp" alt="Photo du club heureux">
+
+
 </div>
 {% endblock %}

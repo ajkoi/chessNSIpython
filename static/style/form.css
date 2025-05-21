@@ -1,10 +1,80 @@
 
+.text_form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 199px;
+
+    margin: 0;
+    border: 5px solid var(--var_complement);
+    background-color: var(--var_main);
+
+    text-align: justify;
+    padding: 20px;
+
+    color: var(--var_text);
+    font-family: "Century Gothic", sans-serif;
+
+}
+
+
+.formulaire {
+    position: relative;
+    top: 15px;
+    left: 25px;
+
+    padding: 15px;
+    margin: 15px;
+
+    height: 385px;
+    width: 385px;
+
+    background-color: var(--surface-0);
+    border-radius: 15px;
+}
+
+.div_envie {
+    position: absolute;
+    top: 10px;
+    left: 485px;
+
+    padding: 15px;
+    margin: 15px;
+
+    height: 415px;
+    width: 300px;
+
+    background-color: var(--surface-1);
+    border-radius: 15px;
+}
+
+
+
+
+.div_inscript {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.div_connect {
+    position: absolute;
+    top: 200px;
+    left: 40px;
+}
+
+
 .enregistrement {
     border: 5px solid var(--var_complement);
     border-radius: 15px;
     margin: 15px;
     padding: 15px;
     width: 300px;
+}
+
+.enregistrement button{
+    border-radius: 2px;
+    margin: 5px;
 }
 
 .connection {
@@ -15,6 +85,11 @@
     width: 300px;
 }
 
+.connection button{
+    border-radius: 2px;
+    margin: 5px;
+}
+
 label {
     float: left;
 }
@@ -22,6 +97,18 @@ label {
 input {
     float: right;
 }
+
+
+.club_img_heureux {
+    position: absolute;
+    top: 55px;
+    right: 10px;
+
+    width: 200px;
+
+    border-radius: 5px;
+}
+
 
 
 
