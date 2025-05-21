@@ -53,6 +53,11 @@ def club():
     return render_template("le_club.html")
 
 
+@app.route("/jouer")
+def jouer():
+    return render_template("jouer.html")
+
+
 @app.route("/learn")
 def apprendre():
     return render_template("termes_echec.html")
@@ -102,25 +107,28 @@ def login():
     return render_template("form2.html", message="")
 
 
-
 # Protected dashboard route
 @app.route("/profile", methods=["GET", "POST"])
 @login_required
 def dashboard():
     if request.method == "POST":
         username = request.form.get("username")
-        tel = f'{str(request.form.get("tel"))[:2]} {str(request.form.get("tel"))[2:4]} {str(request.form.get("tel"))[4:6]} {str(request.form.get("tel"))[6:8]} {str(request.form.get("tel"))[8:]}'
-        cb = f'{str(request.form.get("cb"))[:4]} {str(request.form.get("cb"))[4:8]} {str(request.form.get("cb"))[8:12]} {str(request.form.get("cb"))[12:]}'
-        val = f'{int(request.form.get("val"))}•10^50,00 EUR'
+        tel = f"{str(request.form.get('tel'))[:2]} {str(request.form.get('tel'))[2:4]} {str(request.form.get('tel'))[4:6]} {str(request.form.get('tel'))[6:8]} {str(request.form.get('tel'))[8:]}"
+        cb = f"{str(request.form.get('cb'))[:4]} {str(request.form.get('cb'))[4:8]} {str(request.form.get('cb'))[8:12]} {str(request.form.get('cb'))[12:]}"
+        val = f"{int(request.form.get('val'))}•10^50,00 EUR"
 
-        return redirect(url_for("paiement",cb=cb, tel=tel, val=val ))
-        
-    return render_template("profile.html", message="test")  # render_template("dashboard.html", username=current_user.username)
+        return redirect(url_for("paiement", cb=cb, tel=tel, val=val))
+
+    return render_template(
+        "profile.html", username=current_user.username, mail=current_user.email
+    )  # render_template("dashboard.html", username=current_user.username)
+
 
 @app.route("/paiement/<cb>/<val>/<tel>")
 @login_required
 def paiement(cb, val, tel):
     return render_template("credit_nsi.html", tel=tel, cb=cb, val=val)
+
 
 # Logout route
 @app.route("/logout")
@@ -128,7 +136,6 @@ def paiement(cb, val, tel):
 def logout():
     logout_user()
     return redirect(url_for("home"))
-
 
 
 if __name__ == "__main__":
