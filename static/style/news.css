@@ -3,4 +3,25 @@
     padding: 5px 20px;
     border-radius: 15px;
     font-family: "Century Gothic", sans-serif;
+    margin:20px;
+    text-decoration: none;
+    /* flex:1; */
+}
+.contains {
+    display:flex;
+    width:100%;
+}
+.news p, h1 {
+    text-decoration: none;
+}
+link{
+    /* display: block; */
+    text-decoration: none;
+    color:var(--var_text_bandeau);
+    padding: 0;
+    flex:1;
+    width:40%;
+}
+.news:hover {
+    background-color: var(--surface-1);
 }

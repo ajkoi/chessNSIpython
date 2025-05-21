@@ -1,10 +1,11 @@
 [project]
-name = "chessnsipython"
+name = "ChessNSI"
 version = "0.1.0"
-description = "Add your description here"
+description = "Un site web pour le projet de NSI"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "feedparser>=6.0.11",
     "flask>=3.1.0",
     "flask-login>=0.6.3",
     "flask-sqlalchemy>=3.1.1",
