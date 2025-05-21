@@ -9,6 +9,7 @@ from flask_login import (
     current_user,
 )
 from werkzeug.security import generate_password_hash, check_password_hash
+import feedparser
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -45,7 +46,9 @@ def load_user(user_id):
 # Home route
 @app.route("/")
 def home():
-    return render_template("index.html")
+    url = "https://www.chess.com/rss/news"
+    feed = feedparser.parse(url)
+    return render_template("index.html", feed=feed.entries)
 
 
 @app.route("/club")
