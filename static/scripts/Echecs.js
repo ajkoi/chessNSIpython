@@ -407,12 +407,12 @@ function playablePawn(square, player) {
         }
         if (chessboard[square[0]][square[1]-1]==='p') { // en passant
             if (coups[0][1].length===3) {
-                squares.push([square[0]-1, square[1]-1])
+                squares.push([square[0]-1, square[1]-1, 2])
             } 
         }
         if (chessboard[square[0]][square[1]+1]==='p') {
             if (coups[0][1].length===3) {
-                squares.push([square[0]-1, square[1]+1])
+                squares.push([square[0]-1, square[1]+1, 2])
             } 
         }
     }
@@ -431,12 +431,12 @@ function playablePawn(square, player) {
         }
         if (chessboard[square[0]][square[1]+1]==='P') {
             if (coups[0][1].length===3) {
-                squares.push([square[0]+1, square[1]-1])
+                squares.push([square[0]+1, square[1]-1, 2])
             } 
         }
         if (chessboard[square[0]][square[1]+1]==='P') {
             if (coups[0][1].length===3) {
-                squares.push([square[0]+1, square[1]+1])
+                squares.push([square[0]+1, square[1]+1, 2])
             } 
         }
     }
@@ -528,128 +528,84 @@ const compareArrays = (a, b) =>
 function arrayInarray(arr1, arr2) {
 
     for (let i=0;i<arr2.length;i++) {
-        if (compareArrays(arr1, arr2[i])) {
-            return true
+        if (compareArrays(arr1.slice(0,2), arr2[i].slice(0,2))) {
+            return arr2[i]
         }
     }
     return false
 }
 function verifCoup(start, end, chessboard, player) {
     if (chessboard[start[0]][start[1]]==='P' && player===0) {
-        if (arrayInarray(end, playablePawn(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playablePawn(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='p' && player===1) {
-        if (arrayInarray(end, playablePawn(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playablePawn(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='R' && player===0) {
-        if (arrayInarray(end, playableRook(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableRook(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='r' && player===1) {
-        if (arrayInarray(end, playableRook(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableRook(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='N' && player===0) {
-        if (arrayInarray(end, playableKnight(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableKnight(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='n' && player===1) {
-        if (arrayInarray(end, playableKnight(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableKnight(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='B' && player===0) {
-        if (arrayInarray(end, playableBishop(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableBishop(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='b' && player===1) {
-        if (arrayInarray(end, playableBishop(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableBishop(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='K' && player===0) {
-        if (arrayInarray(end, playableKing(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableKing(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='k' && player===1) {
-        if (arrayInarray(end, playableKing(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableKing(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='Q' && player===0) {
-        if (arrayInarray(end, playableBishop(start, player)) || arrayInarray(end, playableRook(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableBishop(start, player)) || arrayInarray(end, playableRook(start, player))) 
     }
     else if (chessboard[start[0]][start[1]]==='Q' && player===1) {
 
-        if (arrayInarray(end, playableBishop(start, player)) || arrayInarray(end, playableRook(start, player))) {
-            return true
-        }
-        else {
-            return false
-        }
+        return (arrayInarray(end, playableBishop(start, player)) || arrayInarray(end, playableRook(start, player))) 
     }
 
     return false
 }
 
 function movePiece(start, end, chessboard, coups) {
-    chessboard[end[0]][end[1]] =  chessboard[start[0]][start[1]]
-    chessboard[start[0]][start[1]] = ' '
-    coups.push([start, end])
+    if (end.length >= 3) {
+        if (end[2]===1) {
+            chessboard[end[0]][end[1]] =  chessboard[start[0]][start[1]]
+            chessboard[start[0]][start[1]] = ' '
+        }
+        else if (end[2]===2) {
+            chessboard[end[0]][end[1]] =  chessboard[start[0]][start[1]]
+            chessboard[start[0]][start[1]] = ' '
+            chessboard[start[0]][end[1]] = ' '
+        }
+    }
+    else {
+        chessboard[end[0]][end[1]] =  chessboard[start[0]][start[1]]
+        chessboard[start[0]][start[1]] = ' '
+        }
+    
     return chessboard
 }
 
-function jouerCoup(start, end, player) {
+function jouerCoup(start, end, player, coups) {
     let temp = movePiece(start, end, JSON.parse(JSON.stringify(chessboard)), JSON.parse(JSON.stringify(coups)))
-    if (isPosCheck(temp, player) || verifCoup(start, end, chessboard, player)) {
+    console.log(verifCoup(start, end, chessboard, player))
+    if (isPosCheck(temp, player) || !verifCoup(start, end, chessboard, player)) {
         return false
     }
     else {
-        chessboard = movePiece(start, end, chessboard, coups)
+        let endSquare = verifCoup(start, end, chessboard, player)
+        chessboard = movePiece(start, endSquare, chessboard, coups)
+        coups.unshift([start, endSquare])
         console.log(chessboard)
         console.log(coups)
         return true
@@ -657,8 +613,39 @@ function jouerCoup(start, end, player) {
     
 }
 
-console.log(verifCoup([1, 4], [3, 2],chessboard, 1))
+function transformCoup(input) {
+    if (input[0]=="a") {
+        return [input[1]-1, 0]
+    }
+    else if (input[0]=="b") {
+        return [input[1]-1, 1]
+    }
+    else if (input[0]=="c") {
+        return [input[1]-1, 2]
+    }
+    else if (input[0]=="d") {
+        return [input[1]-1, 3]
+    }
+    else if (input[0]=="e") {
+        return [input[1]-1, 4]
+    }
+    else if (input[0]=="f") {
+        return [input[1]-1, 5]
+    }
+    else if (input[0]=="g") {
+        return [input[1]-1, 6]
+    }
+    else if (input[0]=="h") {
+        return [input[1]-1, 7]
+    }
+    return false
+}
 
-// console.log(movePiece([1, 1], [2, 1],chessboard, coups))
-console.log(jouerCoup([1, 1], [3, 1],0))
-console.log(jouerCoup([1, 4], [3, 2],0))
+// console.log(verifCoup([1, 4], [3, 2],chessboard, 1))
+
+// console.log(verifCoup([1, 1], [3, 1, 1],chessboard, 1))
+console.log(jouerCoup([1, 1], [2, 1],1, coups))
+console.log(jouerCoup([6, 3], [4, 3],0, coups))
+console.log(jouerCoup([7, 3], [6, 3],0, coups))
+// console.log(playablePawn([1, 1], 1))
+// console.log(jouerCoup([1, 4], [3, 2],0))
