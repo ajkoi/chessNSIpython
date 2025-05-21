@@ -35,33 +35,15 @@
 
             <!-- <h1 style="float: right;">CurrentUser</h1> -->
         </div>
-        <script>
-            function RandomBackground(){
-
-                // let HexValues = "01234566789ABCDEF"
-                // let HexColor = "#"
-                // for (let i = 0; i < 6; i++) {
-                //     let HexPart = HexValues[Math.floor(Math.random() * 16)];
-                //     HexColor += HexPart;
-                // }
-
-                div_img_current.style.backgroundColor = '#ab173c';
-            }
-        </script>
-
-
-        <p id="p_p_p"></p>
-        <script>
-            document.getElementById('p_p_p').innerHTML = tr;
-        </script>
-        <button onclick="RandomBackground()"> Changer de couleur</button>
-
+        <p> N'oubliez pas de faire des dons pour assurer la pérénité du club</p>
     </div>
 
-    <div>
+    <div style="border-radius: 15px; background-color: var(--surface-0); padding: 10px; margin: 15px;">
     <p>username = {{ username }}</p>
     <p>mail = {{ mail }}</p>
     </div>
+
+    <p> N'oubliez pas de faire des dons pour assurer la pérénité du club</p>
 
     <div class="div_don">
         <form action="{{ url_for("dashboard") }}" method="post">
