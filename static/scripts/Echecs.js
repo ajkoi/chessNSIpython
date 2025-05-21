@@ -19,6 +19,16 @@ function isUpper (char) {
 let chessboard = [
     ["r", "n", "b", "q", "k", "b", "n", "r"],
     ["p", "p", "p", "p", "p", "p", "p", "p"],
+    [" ", " ", " ", "p", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " "],
+    ["P", "P", "P", "P", "P", "P", "P", "P"],
+    ["R", "N", "B", "Q", "K", "B", "N", "R"],
+]
+let chessboard2 = [
+    ["r", "n", "b", "q", " ", "b", "n", "r"],
+    ["p", "p", "p", "p", " ", "p", "p", "p"],
     [" ", " ", " ", " ", " ", " ", " ", " "],
     [" ", " ", " ", " ", " ", " ", " ", " "],
     [" ", " ", " ", " ", " ", " ", " ", " "],
@@ -640,12 +650,54 @@ function transformCoup(input) {
     }
     return false
 }
-
-// console.log(verifCoup([1, 4], [3, 2],chessboard, 1))
-
-// console.log(verifCoup([1, 1], [3, 1, 1],chessboard, 1))
-console.log(jouerCoup([1, 1], [2, 1],1, coups))
-console.log(jouerCoup([6, 3], [4, 3],0, coups))
-console.log(jouerCoup([7, 3], [6, 3],0, coups))
-// console.log(playablePawn([1, 1], 1))
-// console.log(jouerCoup([1, 4], [3, 2],0))
+function image(chessboard, square) {
+    if (chessboard[square[0]][square[1]]==='p') {
+        return '<img src="static/images/chess_piece/N_pion.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='P') {
+        return '<img src="static/images/chess_piece/B_pion.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='r') {
+        return '<img src="static/images/chess_piece/N_tour.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='R') {
+        return '<img src="static/images/chess_piece/B_tour.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='b') {
+        return '<img src="static/images/chess_piece/N_fou.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='B') {
+        return '<img src="static/images/chess_piece/B_fou.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='n') {
+        return '<img src="static/images/chess_piece/N_caval.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='N') {
+        return '<img src="static/images/chess_piece/B_caval.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='q') {
+        return '<img src="static/images/chess_piece/N_reine.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='Q') {
+        return '<img src="static/images/chess_piece/B_reine.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='k') {
+        return '<img src="static/images/chess_piece/N_roi.png"/>'
+    }
+    else if (chessboard[square[0]][square[1]]==='K') {
+        return '<img src="static/images/chess_piece/B_roi.png"/>'
+    }
+    else {return "<p> </p>" }
+}
+function render_c(chessboard) {
+    // const board = document.getElementById("plateau")
+    for (let i=0; i<8;i++) {
+        for (let j=0; j<8;j++) {
+            let square = document.getElementById(i.toString()+j.toString())
+            square.innerHTML = image(chessboard, [i, j])
+        }
+    }
+}
+function render() {
+    render_c(chessboard)
+}
