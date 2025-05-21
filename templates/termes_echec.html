@@ -207,6 +207,30 @@
                         <br><br>
                         Les prises sont indiquées par la lettre x, tandis que le petit roque court est noté 0-0 et le grand roque 0-0-0. 1-0 signifie que les blancs ont gagné, 0-1 les noirs et 1/2-1/2 une nulle.
                     </p>
+
+                    <div></div>
+                    <button class="button_h4" onclick="ChangeDisplay(div_regle_notation_partie, this)">Notation dans la partie</button>
+                    <div id="div_regle_notation_partie">
+                        <p>
+                            Pendant le jeu, il est coutume de noter les mouvements de l'adversaire (ainsi que les siens), afin de pouvoir se rappeler des mouvements.
+                            <br><br>
+                            La notation pendant le jeu réutilise la notation des pièces (K,Q,N...) et la notation des cases (a1, b8, f5...)
+                            <br>
+                            La notation prend donc la forme suivante: (pièce qui se deplace)(case d'arrivée de la pièce)
+                            <br>
+                            Par exemple: Ka1, Nb7, Qd6...
+                            <br><br><br>
+                            Cas Particulier:
+                            <br><br>
+                            -Dans le cas d'une capture, on placera un 'x' entre le nom de la pièce et la case d'arrivée
+                            <br><br>
+                            -Si deux pièces du même type peuvent se rendre sur une même case, on placera, en fonction des cas, le nombre de la colonne d'où vient la pièce que l'on souhaite déplacés ou la lettre de la ligne de la pièce.
+                            <br><br>
+                            Par exemple: Rxe8, Bxc3... ou N1d5, Rad7... ou N4xe2, B7xd2...
+
+                        </p>
+                    </div>
+
                 </div>
             
             </div>
